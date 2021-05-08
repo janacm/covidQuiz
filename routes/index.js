@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const router = express.Router();
 
+
 /*** Persistence ***/
 // Person Schema
 const personSchema = mongoose.Schema({
@@ -17,12 +18,20 @@ const Answer = mongoose.model("Answer", answerSchema);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'COVID-19 Vaccine Quiz' });
+
+  res.render('index', {
+    title: 'COVID-19 Vaccine Quiz'
+  });
 });
 
-router.get('/first', (req, res) => {
-  res.render('first', {title: 'Q1'});
+router.get('/1', (req, res) => {
+  res.render('1', {title: 'Q1'});
 });
+
+router.get('/2', (req, res) => {
+  res.render('2', {title: 'Q2'});
+});
+
 
 // Person Routes
 router.get('/person', (req, res) => {
@@ -64,12 +73,18 @@ router.get('/docs', (req, res) => {
   Person.find((err, response) => res.json(response));
 })
 
-router.post('/', (req, res) => {
+router.post('/1', (req, res) => {
   console.log(req.body);
-  if (req.body.say === "Hi") {
-    res.send("Correct!");
+  if (req.body.answer === "correct") {
+    res.render('1', {
+      submitted: true,
+      correct: true
+    });
   } else {
-    res.send("Wrong. Try again");
+    res.render('1', {
+      submitted: true,
+      correct: false
+    });
   }
 });
 

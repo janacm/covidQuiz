@@ -1,6 +1,8 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 a {
@@ -16,5 +18,17 @@ a {
 }
 
 .answer{
-  color: green;
+  color: #00B7FF;
+}
+
+.incorrect{
+  color: red;
+}
+
+button {
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #00B7FF;
 }
