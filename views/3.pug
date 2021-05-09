@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h2 2. Getting a vaccine is the best way to prevent transmitting COVID-19 to to your neighbors.
+
+  form(action = "/", method = "POST")
+    div
+      input(type='checkbox' id= 'a' name = 'say' value = "Answer")
+      label(for = 'a') False
+    br
+    div
+      input(type='checkbox' id= 'b' name = 'say' value = "Incorrect")
+      label(for = 'a') True
+    br
+    button(type = "submit") Submit!
+
+    if (submitted)
+      if (correct)
+        p Correct!
+      else
+        p Not quite, see answer:
+      p.answer Social distancing is the best way to prevent transmission! Vaccines are not yet confirmed to prevent transmission.
+
+  a(href = "/6")
+    button Next Question!
+
+

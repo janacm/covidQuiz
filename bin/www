@@ -6,8 +6,6 @@
 const app = require('../app');
 const debug = require('debug')('covidQuiz:server');
 const http = require('http');
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my_db');
 /**
  * Get port from environment and store in Express.
  */

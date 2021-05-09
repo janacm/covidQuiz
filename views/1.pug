@@ -4,7 +4,7 @@ block content
   h1 First question!
   h2 How many COVID-19 vaccines exist, as of February 2021?
 
-  form(action = "/1", method = "POST")
+  form(action = "/submitAnswer", method = "POST")
     div
       input(type='radio' id= 'a' name = 'answer' value = "wrong")
       label(for = 'a') Four. Pfizer-BionTech, AstraZeneca, Moderna, Johnson and Johnson.
@@ -17,6 +17,7 @@ block content
       input(type='radio' id= 'c' name = 'answer' value = "correct")
       label(for = 'c') At least seven vaccines have been rolled out.
     br
+    input(type='hidden' name='pagenum' value='2')
     button(type = "submit") Submit!
 
   if (submitted)

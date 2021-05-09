@@ -1,29 +1,15 @@
 const express = require('express');
-const mongoose = require("mongoose");
 const router = express.Router();
 
 
-/*** Persistence ***/
-// Person Schema
-const personSchema = mongoose.Schema({
-  name: String
-});
-const Person = mongoose.model("Person", personSchema);
-
-// Answer Schema
-const answerSchema = mongoose.Schema({
-  isCorrect: Boolean
-})
-const Answer = mongoose.model("Answer", answerSchema);
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
-
+router.get('/', function(req, res) {
   res.render('index', {
     title: 'COVID-19 Vaccine Quiz'
   });
 });
 
+/*** View getters ***/
 router.get('/1', (req, res) => {
   res.render('1', {title: 'Q1'});
 });
@@ -32,59 +18,61 @@ router.get('/2', (req, res) => {
   res.render('2', {title: 'Q2'});
 });
 
-
-// Person Routes
-router.get('/person', (req, res) => {
-  res.render('person', {title: 'Q1'});
+router.get('/3', (req, res) => {
+  res.render('3', {title: 'Q3'});
 });
 
-router.post('/person', (req, res) => {
-  const personInfo = req.body;
-  if (!personInfo.name) {
-    res.render('show_message', {
-      message: "You didn't enter your name. You had one job.",
-      type: "error"
-    });
-  } else {
-    const newPerson = new Person({
-      name: personInfo.name,
-    });
-
-    newPerson.save(function (err, Person) {
-      if (err) {
-        res.render('show_message',
-            {
-              message: "Database error",
-              type: "error"
-            });
-      } else {
-        res.render('show_message', {
-          message: "New person added",
-          type: "success",
-          person: personInfo
-        });
-      }
-    });
-  }
+router.get('/4', (req, res) => {
+  res.render('4', {title: 'Q4'});
 });
 
-// Retrieve all docs
-router.get('/docs', (req, res) => {
-  Person.find((err, response) => res.json(response));
-})
+router.get('/5', (req, res) => {
+  res.render('5', {title: 'Q3'});
+});
 
-router.post('/1', (req, res) => {
+router.get('/6', (req, res) => {
+  res.render('6-poll', {title: 'Q6'});
+});
+
+router.get('/7', (req, res) => {
+  res.render('7-result', {title: 'Your Result!'});
+});
+
+/*** Form submission handlers ***/
+router.post('/submitAnswer', (req, res) => {
   console.log(req.body);
   if (req.body.answer === "correct") {
-    res.render('1', {
+    if (req.session.totalCorrect) {
+      req.session.totalCorrect++;
+    } else {
+      req.session.totalCorrect = 1;
+    }
+    res.render(req.body.pagenum, {
       submitted: true,
       correct: true
     });
   } else {
-    res.render('1', {
+    res.render(req.body.pagenum, {
       submitted: true,
       correct: false
     });
+  }
+});
+
+router.post('/7', (req, res) => {
+    res.render('7-result', {
+      totalCorrect: req.session.totalCorrect
+    });
+});
+
+/*** SessionStorage Handler ***/
+router.get('/sess', (req, res) => {
+  if (req.session.page_views) {
+    req.session.page_views++;
+    res.send("You visited this page " + req.session.page_views + " times.");
+  } else {
+    req.session.page_views = 1;
+    res.send("Welcome to this page!");
   }
 });
 

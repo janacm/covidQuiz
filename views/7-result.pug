@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Your Result!
+  span.result
+    = (totalCorrect / 5) * 100
+  span.result %
+  p You got #{totalCorrect} out of 5 questions right!
+
+  br
+  a(href="/")
+    button Play again!
+
+

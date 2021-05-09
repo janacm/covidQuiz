@@ -3,21 +3,23 @@ extends layout
 block content
   h2 2. Getting a vaccine is the best way to prevent transmitting COVID-19 to to your neighbors.
 
-  form(action = "/", method = "POST")
+  form(action = "/submitAnswer", method = "POST")
     div
-      input(type='checkbox' id= 'a' name = 'say' value = "Answer")
+      input(type='radio' id= 'a' name = 'answer' value = 'correct')
       label(for = 'a') False
     br
     div
-      input(type='checkbox' id= 'b' name = 'say' value = "Incorrect")
+      input(type='radio' id= 'b' name = 'answer' value = 'wrong')
       label(for = 'a') True
     br
+    input(type='hidden' name='pagenum' value='2')
     button(type = "submit") Submit!
 
-    if (submitted)
-      if (correct)
-        p Correct!
-      else
-        p Not quite, see answer:
-      p.answer Social distancing is the best way to prevent transmission! Vaccines are not yet confirmed to prevent transmission.
-
+  if (submitted)
+    if (correct)
+      p Correct!
+    else
+      p Not quite, see answer:
+    p.answer Social distancing is the best way to prevent transmission! Vaccines are not yet confirmed to prevent transmission.
+    a(href = "/3")
+      button Next Question!

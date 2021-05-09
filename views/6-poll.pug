@@ -4,7 +4,7 @@ block content
   h1 Final Question (Poll)
   h2 There's no "correct" answer to this question. Please select whichever describes how you feel:
 
-  form(action = "/", method = "POST")
+  form(action = "/7", method = "POST")
     div
       input(type='checkbox' id= 'a' name = 'say' value = "Hi")
       label(for = 'a') Before this quiz, I wanted to get the vaccine, but now I don't.
@@ -25,10 +25,4 @@ block content
       input(type='checkbox' id= 'e' name = 'c' value = "answer")
       label(for = 'a') I'm not sure if I want to get the vaccine or not.
     br
-  button(type = "submit") Submit!
-
-  p.answer As of 18 February 2021, at least seven different vaccines across three platforms have been rolled out in countries. Vulnerable populations in all countries are the highest priority for vaccination. You can see a list here:
-  a(href="https://www.cp24.com/news/a-brief-look-at-the-seven-vaccines-canada-has-pre-ordered-1.5293435?cache=") Seven Vaccines.
-
-  p.answer At the same time, more than 200 additional vaccine candidates are in development, of which more than 60 are in clinical development.
-
+    button(type = "submit") Submit!
