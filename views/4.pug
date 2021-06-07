@@ -1,16 +1,16 @@
 extends layout
 
 block content
-  h2 2. Getting a vaccine is the best way to prevent transmitting COVID-19 to to your neighbors.
+  h2 4. The recommended dosage for the Moderna is larger than the Pfizer vaccine. 
 
   form(action = "/", method = "POST")
     div
       input(type='checkbox' id= 'a' name = 'say' value = "Answer")
-      label(for = 'a') False
+      label(for = 'a') True
     br
     div
       input(type='checkbox' id= 'b' name = 'say' value = "Incorrect")
-      label(for = 'a') True
+      label(for = 'a') False
     br
     button(type = "submit") Submit!
 
@@ -19,7 +19,7 @@ block content
         p Correct!
       else
         p Not quite, see answer:
-      p.answer Social distancing is the best way to prevent transmission! Vaccines are not yet confirmed to prevent transmission.
+      p.answer Pfizer’s contains 30 micrograms of vaccine and Moderna has 100 micrograms.
 
   a(href = "/5")
     button Next Question!

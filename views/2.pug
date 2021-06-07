@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  h2 2. Getting a vaccine is the best way to prevent transmitting COVID-19 to to your neighbors.
+  h2 2. Getting a vaccine is the best way to prevent transmitting COVID-19 to your neighbors.
 
   form(action = "/submitAnswer", method = "POST")
-    div
-      input(type='radio' id= 'a' name = 'answer' value = 'correct')
+    div.form-check
+      input.form-check-input(type='radio' id= 'a' name = 'answer' value = 'correct')
       label(for = 'a') False
     br
-    div
-      input(type='radio' id= 'b' name = 'answer' value = 'wrong')
+    div.form-check
+      input.form-check-input(type='radio' id= 'b' name = 'answer' value = 'wrong')
       label(for = 'a') True
     br
     input(type='hidden' name='pagenum' value='2')
@@ -20,6 +20,6 @@ block content
       p Correct!
     else
       p Not quite, see answer:
-    p.answer Social distancing is the best way to prevent transmission! Vaccines are not yet confirmed to prevent transmission.
+    p.answer It is currently unknown if vaccinated people can transmit the virus if they do become infected but don’t show symptoms. 
     a(href = "/3")
       button Next Question!
