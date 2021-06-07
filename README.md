@@ -15,6 +15,11 @@ npm install
 npm start
 ```
 
+Or if you want to use `nodemon` for monitoring changes:
+```
+nodemon start
+```
+
 - The server runs on  
 ```
 http://localhost:3000/

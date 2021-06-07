@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h2 5. How long do the Pfizer and Moderna vaccine provide immunity for?
+  h2 6. The vaccine protects against more than one variant of COVID-19.
 
   form(action = "/submitAnswer", method = "POST")
     div
@@ -24,8 +24,8 @@ block content
         p Correct!
       else
         p Not quite, see answer:
-      p.answer Data shows Moderna and Pfizer vaccines, which both use the same mRNA technology to create immunity against the novel coronavirus, remain effective after 6 months. See here for details: 
-      a (href = "https://www.healthline.com/health-news/will-we-need-a-covid-19-vaccine-booster-shot-later-this-year#Boosters-are-common")
+      p.answer The new variants of SARS-CoV-2, including the B.1.1.7 (UK variant) and the 501Y.V2 (South African Variant), do not alter the effectiveness of the Moderna mRNA vaccine.
+      a (href = "https://www.who.int/news-room/feature-stories/detail/the-moderna-covid-19-mrna-1273-vaccine-what-you-need-to-know?gclid=CjwKCAjwtdeFBhBAEiwAKOIy56nFgJ__pu_aBFqKan0NhHIi-cRSdrUam8C_oAd5KLfQnu7zNOlBVhoC51gQAvD_BwE")
 
   a(href = "/6")
     button Final Question!

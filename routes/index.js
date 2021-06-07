@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+const app = express();
 const router = express.Router();
 
 
@@ -27,16 +29,29 @@ router.get('/4', (req, res) => {
 });
 
 router.get('/5', (req, res) => {
-  res.render('5', {title: 'Q3'});
+  res.render('5', {title: 'Q5'});
 });
 
 router.get('/6', (req, res) => {
-  res.render('6-poll', {title: 'Q6'});
+  res.render('6', {title: 'Q6'});
 });
 
-router.get('/7', (req, res) => {
-  res.render('7-result', {title: 'Your Result!'});
+router.get('/poll', (req, res) => {
+  res.render('poll', {title: 'poll'});
 });
+
+router.get('/result', (req, res) => {
+  res.render('result', {title: 'Your Result!'});
+});
+
+router.get('/about', (req, res) => {
+  res.render('about', {title: 'About!'});
+});
+
+var dir = path.join(__dirname, 'public');
+dir = path.join(__dirname, 'images');
+router.use(express.static(dir));
+
 
 /*** Form submission handlers ***/
 router.post('/submitAnswer', (req, res) => {
