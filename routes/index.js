@@ -40,6 +40,11 @@ router.get('/poll', (req, res) => {
   res.render('poll', {title: 'poll'});
 });
 
+router.get('/poll-results', (req, res) => {
+  res.render('poll-results', {title: 'Poll Results'});
+});
+
+
 router.get('/result', (req, res) => {
   res.render('result', {title: 'Your Result!'});
 });
