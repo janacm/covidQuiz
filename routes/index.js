@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 // From Master v5
+=======
+// From masterly branch
+>>>>>>> 567725f (Rebaser added)
 const express = require('express');
 const path = require('path');
 const app = express();
 const router = express.Router();
+// Rebase branch added this
 
 
 /* GET home page. */
