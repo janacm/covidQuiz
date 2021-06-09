@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// From Master v5
-=======
-// From masterly branch
->>>>>>> 567725f (Rebaser added)
+// From Master v6 after reading
 const express = require('express');
 const path = require('path');
 const app = express();
