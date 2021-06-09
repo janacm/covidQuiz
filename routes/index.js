@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // From rebaser branch
-=======
-// From rebase branch
->>>>>>> 766d994 (Rebase test)
 const express = require('express');
 const path = require('path');
 const app = express();
