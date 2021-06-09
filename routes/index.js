@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// From masterly branch
-=======
-// From rebaser branch
->>>>>>> 2e06942e01661f08572ec0513a536394d36724a9
+// From Master v3
 const express = require('express');
 const path = require('path');
 const app = express();
